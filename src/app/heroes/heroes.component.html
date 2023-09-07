@@ -1,0 +1,42 @@
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<br>
+<br>
+<div>
+  <h2>Add Hero</h2>
+  <label for="heroId">Hero ID:</label>
+  <input type="text" id="heroId" [(ngModel)]="heroId" />
+</div>
+
+<div>
+  <label for="heroName">Hero Name:</label>
+  <input type="text" id="heroName" [(ngModel)]="heroName" />
+</div>
+
+<button type="button" (click)="onAddHero()">Submit</button>
+<br>
+<br>
+
+<div>
+  <h1>Delete Hero</h1>
+  <input type="number" [(ngModel)]="heroId" placeholder="Hero ID">
+  <button (click)="onDeleteHero()">Delete</button>
+</div>
+
+
+
+
+
+
+
+<!-- The rest of the template... -->
